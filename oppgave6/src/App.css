@@ -1,0 +1,206 @@
+/* Base styling */
+/* 
+Resources:
+ * flexbox: https://fullstækk.no/courses/css/06-flexbox/
+ * media queries: https://fullstækk.no/courses/css/05-media-queries/
+*/
+
+* {
+  box-sizing: border-box;
+}
+
+section,
+article {
+  margin: 0;
+  padding: 0;
+}
+
+/* Add styling */
+/* mobile first */
+body {
+    max-width: 100vw;
+    max-height: 100vh;
+   
+}
+/* alle a-tag mister understrek */
+a {
+    text-decoration: none;
+}
+/* container div holder alle html-elementer i body-tag */
+.container {
+    width: 95%;
+    height: 100%;
+    display: grid;
+    background-color: #fff;
+    grid-template-columns: 1fr;
+    grid-template-rows: 5rem 1fr;
+    grid-template-areas: 
+    'n'
+    'm'
+    ;
+    gap: 1rem;
+}
+/* navigasjon */
+.nav {
+    grid-area: n;
+    box-shadow: -2px 2px 5px rgb(233, 211, 211);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    
+}
+/* nav a-lenker */
+.nav-link1, .nav-link2{font-weight: bold;}
+.main {
+    grid-area: m;
+    background-color: white;
+    
+}
+/* form tag som inneholder 2 div, 1 div for title label og input, andre div textarea og content label */
+form {
+    width: 100%;
+}
+/* div med content label og input */
+.title {
+    display: flex column;
+    margin: 10px 0;
+}
+/* id for input i title div */
+#title {
+  width: 100%;
+  height: 2rem;
+}
+/* div som textarea ligger i */
+.content{
+  display: flex column;
+  margin: 10px 0;
+}
+/* id for textarea */
+#content {
+    width: 100%;
+  
+}
+/* alle 2 label som finnes fårr fet tekst */
+label {
+    font-weight: bold;
+}
+/* store knappen som ligger under textarea */
+button {
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    background-color: #5cd2c1;
+    color: white;
+    
+    
+}
+
+/* div container som inneholder alle cards sections */
+.art-container {
+  background-color: #fff;
+    display: flex column;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    
+}
+/* stil felles for alle cards */
+.card {
+    /* border: 1px solid black; */
+    flex-grow: 1;
+    padding: 1rem 1rem;
+    margin: 1% 0;
+    display: flex column;
+    box-shadow: 2px 4px 5px rgb(233, 211, 211);
+    text-align: center;
+}
+/* stil for knappene i hver card */
+.btn {
+    margin-left: 50%;
+    background-color: #5cd2c1;
+    color: white;
+    padding: .5rem 1rem;
+    border-radius: 2px;
+}
+/* stil for alle p-tag i hver card */
+p {
+    color: black;
+    padding: 10px 0;
+    opacity: .7;
+    text-align: start;
+    padding: 5px 20px;
+}
+
+/* article buttons and big button container container */
+.btn-container, .bigBtn-container {
+  display: flex;
+  justify-content: center;
+}
+
+/* h2 - article header */
+h2 {
+  text-align: center;
+}
+
+/* For desktop viewport */
+@media screen and (min-width: 600px){
+  .art-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2%;
+        
+    }
+    main {
+      margin-left: 15%;
+    }
+    .card {
+        /* border: 1px solid black; */
+        flex-grow: 1;
+        flex-basis: 32%;
+       /*  width: 200px; */
+    }
+    button {
+      padding: 1rem 2rem;
+      background-color: #5cd2c1;
+      color: white;
+  }
+  form {
+      width: 100%;
+  }
+  .title {
+      display: flex column;
+  }
+  #title {
+    width: 35%;
+    height: 2rem;
+    border: 1px solid black;
+    border-radius: 5px;
+  }
+  .content{
+    display: flex column;
+  }
+  #content {
+      width: 65%;
+      border: 1px solid black;
+      border-radius: 5px;
+  }
+  .nav {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      
+  }
+  h2 {
+    text-align: start;
+  }
+  /* for store knappen i form */
+  .bigBtn-container {
+    width: 65%;
+  }
+  .btn-container {
+    justify-content: flex-end;
+  }
+  /* nav a-lenker */
+  .nav-link1{margin-left: 2%;}
+  .nav-link2{ margin-right: 2%;}
+}
