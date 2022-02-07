@@ -1,14 +1,31 @@
 //todo list card
 
-const Card = ()=>{
+const Card = ({title,content})=>{
+  /*   console.log(title,content);
+    const arr = [{}];
+    const tit = title;
+    arr.push(tit)
+    console.log(arr); */
+    
+ 
+  /*   console.log(array); */
+
+  
+    
+  
+  
+    
 return(
-          <section class="card">
-                        <h3>Todotitle</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis harum quas qui! Ipsa, nihil vero.</p>
-                        <div class="btn-container">
-                            <a href="#" class="btn">Complete</a>
-                        </div>
-                    </section>
+    <>
+        {/* <section className="card">
+          <h3>{title}</h3>
+          <p>{content}</p>
+          <div className="btn-container">
+            <button>Complete</button>
+          </div>
+        </section> */}
+      <h1>Card</h1>
+</>
 )
 }
 

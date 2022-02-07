@@ -1,6 +1,7 @@
 //navigasjon component
 
-const Nav = ()=>{
+const Nav = ({gone})=>{
+    
 return(
     <nav class="nav">
         <a href="" class="nav-link1">HIOF</a>
