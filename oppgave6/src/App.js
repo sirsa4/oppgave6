@@ -1,3 +1,9 @@
+//resources: practice 
+/*
+  * personal useState practice with other resouces included in App.js top as comment: https://github.com/sirsa4/lift-state/tree/main/lifting-state
+
+  * remove/filter cards: https://www.youtube.com/watch?v=ly3m6mv5qvg&ab_channel=CodingAddict  Timestamp: 4:04:00 - Grocery-bud Add items
+ */
 
 //import css
 import './App.css';
@@ -8,74 +14,38 @@ import Form from './components/Form';
 import Card from './components/Card';
 
 //state
-import {useState} from 'react';
+import { useState } from 'react';
 
 
 function App() {
-//form states
-const [title,setTitle]=useState('');
-const [content,setContent]=useState('');
 
-//card state
-const [card,setCard]=useState([]);
-const [ready,setReady]=useState(false);
+  //useState for the two input - title and content.
+  const [title, setTitle] = useState('');
+  const [content, setContent] = useState('');
 
-const isReady = false;
-
-const header = title;
-const text = content;
-
-/* console.log(header);
-console.log(text); */
-const id = Math.floor(Math.random() * 10000);
-
-/*   console.log(header);
-console.log(content); */
-const obj = {
-  head: header,
-    body: text,
-    id: id
-}
-
-/* if(title !== "<empty string>"){
-  console.log('yes');
-} else {
-  console.log('no');
-}
- */
-
-
-
-/* iterate() */
-
-/* workplz.push(obj) */
-/* console.log(workplz); */
-
-/*  console.log(head, body);
-console.log(array[0], array[1]); */
-
-//this works
-/* const newArray = workplz.map((x)=>{
- const {head, body, id} = x;
- console.log(head,body,id);
- return <Card key={id} title={head} content={body}/>
-}) */
-/* const newArray = obj.map((x)=>{
- const {head, body} = x;
- return <section><h3>{head}</h3><p>{body}</p><div><button>Complete</button></div></section>
-}) */
+  //state for card array object to create todo cards from value of inputs.
+  const [card, setCard] = useState([]);
 
   return (
     <div className="container">
-      <Nav/>
+      <Nav />
       <main>
-        <Form title={setTitle} content={setContent} rdy ={setReady} />
+        <Form
+          title={title}
+          setTitle={setTitle}
+          content={content}
+          setContent={setContent}
+          card={card}
+          setCard={setCard}
+        />
         <article>
-        <h2>My Todos</h2>
-        <div className="art-container">
-        {/*   {workplz ? newArray : '' }  */}
-        <Card/>
-        </div>
+          <h2>My Todos</h2>
+          <div className="art-container">
+            <Card
+              card={card}
+              setCard={setCard}
+            />
+          </div>
         </article>
       </main>
     </div>

@@ -1,32 +1,36 @@
 //todo list card
 
-const Card = ({title,content})=>{
-  /*   console.log(title,content);
-    const arr = [{}];
-    const tit = title;
-    arr.push(tit)
-    console.log(arr); */
-    
- 
-  /*   console.log(array); */
+const Card = ({ card, setCard }) => {
 
-  
-    
-  
-  
-    
-return(
+
+
+
+  return (
     <>
-        {/* <section className="card">
-          <h3>{title}</h3>
-          <p>{content}</p>
-          <div className="btn-container">
-            <button>Complete</button>
-          </div>
-        </section> */}
-      <h1>Card</h1>
-</>
-)
+      {card.map((item) => {
+        const { title, content, complete, id } = item;
+        return (
+          <section className="card" key={id}>
+            <h3>{title}</h3>
+            <p>{content}</p>
+            <div className="btn-container">
+              <button>{complete}</button>
+            </div>
+
+          </section>
+        )
+      })}
+
+    </>
+    /*  <section className="card">
+       <h3>Todo title</h3>
+       <p>This is todo content</p>
+       <div className="btn-container">
+         <button>Complete</button>
+       </div>
+ 
+     </section> */
+  )
 }
 
 export default Card;
