@@ -2,7 +2,13 @@
 
 const Card = ({ card, setCard }) => {
 
-
+//complete/delete todolist component
+const remove = (id)=>{
+  /* console.log(id); */
+  //when complete button inside a todo card, new array is created which all array items from previous, but without the one whos button is clicked. Because condition inside filter is creating all items who id is not equal to the id of current component who complete button is clicked.
+  const newCard = card.filter((item)=>item.id !== id);
+  setCard(newCard);
+}
 
 
   return (
@@ -14,7 +20,10 @@ const Card = ({ card, setCard }) => {
             <h3>{title}</h3>
             <p>{content}</p>
             <div className="btn-container">
-              <button>{complete}</button>
+              {/* onClick event on button run filter method to remove component with id */}
+              <button 
+              onClick={()=>remove(id)}>{complete}
+              </button>
             </div>
 
           </section>

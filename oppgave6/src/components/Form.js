@@ -22,7 +22,9 @@ const Form = ({ title, setTitle, content, setContent, card, setCard }) => {
     const submit = (e) => {
         e.preventDefault();
 
-        //first create new card variabel for new objects
+        //if statment to make sure both title and content inputs are not empty when submitting. This is to avoid having todolist card without title or content. Both have to have text content in inputs for card component to be rendered in DOM.
+       if(title !== '' && content !== ''){
+             //first create new card variabel for new objects
         const newCard = [...card, { title: title, content: content, complete: 'Complete', id: new Date().getTime().toString() }]
 
         //set newCard new card value
@@ -30,6 +32,7 @@ const Form = ({ title, setTitle, content, setContent, card, setCard }) => {
         setTitle('');
         setContent('');
         console.log(card);
+       }
 
     }
 
