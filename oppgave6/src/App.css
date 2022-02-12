@@ -161,6 +161,11 @@ h2 {
   color: white;
 
 }
+.error {
+  background-color: gold;
+  color: black;
+
+}
 
 /* For desktop viewport */
 @media screen and (min-width: 600px){

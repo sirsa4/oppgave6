@@ -41,6 +41,9 @@ function App() {
   //It is sent as prop to Card component and is updated inside setTimeout too inside remove() which filters new array.
   const [showDelete, setShowDelete] = useState(false);
 
+  //error when empty title or content input or both empty is submitted
+  const [showError, setShowError] = useState(false);
+
  
 
   return (
@@ -49,7 +52,10 @@ function App() {
       <main>
         {/* conditional rendering. first one for example runs showAdd is true and showDelete is false. This is to avoid both being able to run at same time. */}
         {showAdd && !showDelete ? <h2 className='add'>Todo list added!</h2> : null}
+        {/* show the delete message when add message is not showing */}
         {showDelete && !showAdd ? <h2 className='delete'>Todo list deleted!</h2> : null}
+        {/* show error masessage when both add and delete message are not shown */}
+        {showError && !showDelete && !showAdd ? <h2 className='error'>Error! Can't create empty todo list</h2> : null}
         <Form
           title={title}
           setTitle={setTitle}
@@ -58,6 +64,7 @@ function App() {
           card={card}
           setCard={setCard}
           setShowAdd={setShowAdd}
+          setShowError={setShowError}
         />
         <article>
           <h2>My Todos</h2>

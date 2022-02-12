@@ -1,7 +1,7 @@
 //form component
 
-//in parameter props are deconstructed for easier use.
-const Form = ({ title, setTitle, content, setContent, card, setCard, setShowAdd }) => {
+//in parameter props are destructured for easier use in Form component.
+const Form = ({ title, setTitle, content, setContent, card, setCard, setShowAdd, setShowError }) => {
 
     //onChange functions for input
     //title input state onChange
@@ -50,6 +50,16 @@ const Form = ({ title, setTitle, content, setContent, card, setCard, setShowAdd 
             
           },500);
 
+       } else {
+           /* console.log('try again'); */
+           //Error when both title and content are submitted empty.
+           setTimeout(()=>{
+            setShowError(true);
+            setTimeout(()=>{
+                setShowError(false);
+            },1000);
+            
+          },500);
        }
 
     }
