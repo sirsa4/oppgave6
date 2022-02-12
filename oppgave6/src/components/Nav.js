@@ -1,4 +1,5 @@
 //navigasjon component
+//This component has no funksjonality. it only renders html.
 
 const Nav = ({gone})=>{
     

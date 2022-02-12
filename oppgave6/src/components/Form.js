@@ -1,6 +1,7 @@
 //form component
 
-const Form = ({ title, setTitle, content, setContent, card, setCard }) => {
+//in parameter props are deconstructed for easier use.
+const Form = ({ title, setTitle, content, setContent, card, setCard, setShowAdd }) => {
 
     //onChange functions for input
     //title input state onChange
@@ -25,13 +26,30 @@ const Form = ({ title, setTitle, content, setContent, card, setCard }) => {
         //if statment to make sure both title and content inputs are not empty when submitting. This is to avoid having todolist card without title or content. Both have to have text content in inputs for card component to be rendered in DOM.
        if(title !== '' && content !== ''){
              //first create new card variabel for new objects
+             //previous card state value is spread then second item in array is an object with title, content, complete and id keys. The value for title is title, from title input value. value for content is similar in being value from textarea state. Value of complete is string. Value of id is date to give each object unique id which can be used to give rendered card unique key.
+             //this array is mapped in the Card component, also filtered when todolist is completed.
         const newCard = [...card, { title: title, content: content, complete: 'Complete', id: new Date().getTime().toString() }]
 
         //set newCard new card value
         setCard(newCard);
+
+        //both input values are clear to empty string after submit so it easier to write again on them.
         setTitle('');
         setContent('');
         console.log(card);
+
+        //add message setTimeout function - count down function
+        //This is a setTimeout and then another setTimeout inside it. 
+        //The first setTimeout sets showAdd to true so that is h2-tag with add message is rendered, but this runs only after 500millisecond after todolist is created.
+        //the second setTimeout sets showAdd to false again so that h2-tag is removed, it happends after 1second is gone.
+        setTimeout(()=>{
+            setShowAdd(true);
+            setTimeout(()=>{
+                setShowAdd(false);
+            },1000);
+            
+          },500);
+
        }
 
     }

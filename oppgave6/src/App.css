@@ -150,6 +150,18 @@ h2 {
   text-align: center;
 }
 
+/* add and delete p-tag styles */
+.add {
+  background-color: green;
+  color: white;
+
+}
+.delete {
+  background-color: red;
+  color: white;
+
+}
+
 /* For desktop viewport */
 @media screen and (min-width: 600px){
   .art-container {
